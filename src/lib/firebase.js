@@ -11,8 +11,20 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+// Prevent initialization crash when keys are missing during Vercel build prerendering
+const hasApiKey = firebaseConfig.apiKey && firebaseConfig.apiKey !== "";
+const activeConfig = hasApiKey ? firebaseConfig : {
+  ...firebaseConfig,
+  apiKey: "AIzaSyFakeKeyForPrerenderBuildTime",
+  authDomain: "mock-domain.firebaseapp.com",
+  projectId: "mock-project-id",
+  storageBucket: "mock-project-id.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:1234567890abcdef"
+};
+
 // Prevent re-initialization on hot reloads (Next.js dev mode)
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const app = getApps().length === 0 ? initializeApp(activeConfig) : getApps()[0];
 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
