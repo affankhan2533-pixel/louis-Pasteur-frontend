@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F4F4F2] text-luxury-black font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ========================================
+   PREMIUM SCROLLBAR
+======================================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* ========================================
+   GLASSMORPHISM PANELS
+======================================== */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 234, 234, 0.6);
+}
+
+.dark-glass-panel {
+  background: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   LUXURY TYPOGRAPHY
+======================================== */
+.font-editorial {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+}
+
+/* ========================================
+   PREMIUM IMAGE ZOOM
+======================================== */
+.image-zoom-container img {
+  transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1);
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.07);
+}
+
+/* ========================================
+   PRODUCT CARD — GREYISH WHITE BACKGROUND
+   Light off-white (#F4F4F2) for clean studio look
+======================================== */
+.product-card-bg {
+  background-color: #F4F4F2;
+}
+
+/* ========================================
+   SKELETON LOADING STATE
+======================================== */
+.skeleton-line {
+  background: linear-gradient(90deg, #F0F0EE 25%, #E8E8E6 50%, #F0F0EE 75%);
+  background-size: 200% 100%;
+  animation: loading-skeleton 1.5s infinite;
+}
+
+@keyframes loading-skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   RICH CARD HOVER LIFT EFFECT
+======================================== */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ========================================
+   ANIMATED UNDERLINE LINKS
+======================================== */
+.animated-underline {
+  position: relative;
+}
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #D4AF37;
+  transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   PREMIUM SECTION DIVIDER
+======================================== */
+.section-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, #D4AF37, transparent);
+  margin: 8px auto 0;
+}
+
+/* ========================================
+   SMOOTH FADE-IN ANIMATION
+======================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ========================================
+   PRODUCT IMAGE — GREYISH WHITE CONTAINER
+======================================== */
+.product-img-container {
+  background-color: #F4F4F2;
+}
+
+/* ========================================
+   PREMIUM BUTTON STYLES
+======================================== */
+.btn-luxury {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-luxury:hover {
+  background: transparent;
+  color: #000;
+}
+
+.btn-luxury-outline {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-luxury-outline:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ========================================
+   HORIZONTAL SNAP SCROLL (Mobile Collections)
+======================================== */
+.snap-scroll-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-scroll-x > * {
+  scroll-snap-align: start;
+}
+
+/* Hide scrollbar for snap scroll containers */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================
+   CURATED COLLECTION CARD GRADIENT
+======================================== */
+.collection-card-gradient {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.05) 65%,
+    transparent 100%
+  );
+}
+
+/* ========================================
+   STEALS CARD SHIMMER EFFECT
+======================================== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.steals-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0) 0%,
+    rgba(212, 175, 55, 0.08) 50%,
+    rgba(212, 175, 55, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* ========================================
+   EDITORIAL SECTION FADE-IN ON SCROLL
+======================================== */
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
