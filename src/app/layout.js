@@ -7,13 +7,18 @@ import SearchOverlay from '@/components/SearchOverlay';
 import AIFashionAssistant from '@/components/AIFashionAssistant';
 import MobileBottomNav from '@/components/MobileBottomNav';
 
+export const viewport = {
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 export const metadata = {
   title: 'LOUIS PASTEUR | Haute Couture & AI Sizing Atelier',
   description: 'Experience luxury D2C fashion with bespoke styling, 360° virtual fitting, and real-time AI measurements.',
   metadataBase: new URL('http://localhost:3000'),
   // PWA / App meta
-  themeColor: '#000000',
-  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',

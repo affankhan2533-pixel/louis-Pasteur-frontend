@@ -6,6 +6,11 @@ const nextConfig = {
   images: {
     unoptimized: false,
     minimumCacheTTL: 1,
+    localPatterns: [
+      {
+        pathname: '/**',
+      },
+    ],
     // Allow Google profile photos from Firebase Auth
     remotePatterns: [
       {
